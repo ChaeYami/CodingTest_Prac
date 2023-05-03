@@ -19,4 +19,3 @@ def solution(array):
     else:
         return -1
 
-d
