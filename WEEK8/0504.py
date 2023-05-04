@@ -56,6 +56,18 @@ def solution2(s, skip, index):
         answer += new_j
     return answer
 
+# 아스키 코드 변환 함수 사용
+def solution3(s, skip, index):
+    result = ''
+    for char in s:
+        if char in skip:  # skip에 포함된 문자는 건너뜁니다.
+            continue
+        new_char = chr((ord(char) - ord('a') + index) % 26 + ord('a'))  # 문자를 index만큼 뒤로 이동시킵니다.
+        result += new_char
+    return result
+
+
+
 # 입출력 예\
     
 start_time = time.perf_counter() # 시작 시간 저장
@@ -78,4 +90,13 @@ end_time = time.perf_counter() # 종료 시간 저장
 
 print(answer, "실행 시간:", round((end_time - start_time), 9)) # 소요된 시간 출력
 
+
+start_time = time.perf_counter() # 시작 시간 저장
+
+# 코드 실행
+answer = solution3("aukks", "wbqd", 5)
+
+end_time = time.perf_counter() # 종료 시간 저장
+
+print(answer, "실행 시간:", round((end_time - start_time), 9)) # 소요된 시간 출력
 
