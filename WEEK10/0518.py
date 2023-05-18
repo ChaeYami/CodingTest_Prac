@@ -20,35 +20,34 @@ import math
 
 def solution(fees, records):
     answer = []
-
-    temp_dict = {}
-    time_dict = {}
+    temp_dict = {} # 입, 출차 정보 담는 딕셔너리
+    time_dict = {} # 해당 차의 주차시간을 담는 딕셔너리
     for record in records:
-        time,number,status = record.split()
+        time,number,status = record.split() # 시간 / 차 번호 / 입,출차여부
         hour,minute = time.split(':')
-        minutes = int(hour)*60 + int(minute)
+        minutes = int(hour)*60 + int(minute) # 00시 기준으로 분단위 시각
 
-        if status == 'IN':
-            temp_dict[number] = minutes
-        elif status == 'OUT':
-            time = minutes - temp_dict[number]
+        if status == 'IN': # 입차일때
+            temp_dict[number] = minutes # '차번호' : '분단위 시각'
+        elif status == 'OUT': # 출차일때
+            time = minutes - temp_dict[number] # 출차시각-입차시각을 시간 딕셔너리에 저장
             if number in time_dict:
-                time_dict[number] += time
+                time_dict[number] += time # 기존 키값이 있다면 새 요소로 저장
             else:
-                time_dict[number] = time
-            del(temp_dict[number])
-                
-    for number, val in temp_dict.items():
-        time = 1439 -val
+                time_dict[number] = time # 기존에 없으면 초기화하면서 저장
+            del(temp_dict[number]) # OUT 까지 완료되면 기존 딕셔너리에서 삭제
+    # 출차 없을 때            
+    for number, val in temp_dict.items(): # OUT되지 않은 차의 정보만 남은 딕셔너리
+        time = 1439 -val # 23시59분 출차로 계산한다.
         if number in time_dict:
-            time_dict[number] += time
+            time_dict[number] += time # 기존 키값이 있다면 새 요소로 저장
         else:
-            time_dict[number] = time
-            
-    for number, time in time_dict.items():
-        over_time = max(0, time-fees[0])
-        total_fees = fees[1] + math.ceil(over_time/fees[2]) * fees[3]
-        time_dict[number] = total_fees
+            time_dict[number] = time # 기존에 없으면 초기화하면서 저장
+    # 주차비 계산        
+    for number, time in time_dict.items(): 
+        over_time = max(0, time-fees[0]) # 기본요금 초과시간
+        total_fees = fees[1] + math.ceil(over_time/fees[2]) * fees[3] # 주차비 계산
+        time_dict[number] = total_fees # 기존 시간 딕셔너리 사용해서 시간을 주차비로 업데이트
     time_dict = sorted(time_dict.items())
 
     for number, fee in time_dict:
