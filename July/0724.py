@@ -25,10 +25,9 @@ def solution(wallpaper):
     
 이렇게 했는데 몇 테스트케이스에서 실패함
 
-1. 불필요한 'answer' 리스트를 제거하고, 좌표를 직접 리스트로 계산하고 반환합니다.
-2. 'enumerate' 함수를 사용하여 'wallpaper' 리스트의 각 행의 인덱스와 값에 접근합니다.
-3. 'x_list'와 'y_list'의 정렬을 간단하게 하였으며, 'append' 연산이 순서를 보존하기 때문에 더욱 간편해졌습니다.
-4. 'y_max'와 'y_list[-1]+1'의 계산을 합쳐 중복 계산을 피했습니다.
+1. 'enumerate' 함수를 사용하여 'wallpaper' 리스트의 각 행의 인덱스와 값에 접근합니다.
+2 'x_list'와 'y_list'의 정렬을 간단하게 하였으며, 'append' 연산이 순서를 보존하기 때문에 더욱 간편해졌습니다.
+3. 'y_max'와 'y_list[-1]+1'의 계산을 합쳐 중복 계산을 피했습니다.
 '''
 
 def solution(wallpaper):
@@ -36,20 +35,20 @@ def solution(wallpaper):
     x_list = []
     y_list = []
     for y, string in enumerate(wallpaper):
-        x1 = string.find('#')  # 해당 행의 첫 파일 위치 (드래그 시작)
-        x2 = string.rfind('#') + 1  # 해당 행의 마지막 파일 위치 (드래그 끝)
+        x1 = string.find('#')  # 해당 행의 첫 '#' 문자 위치 (드래그 시작)
+        x2 = string.rfind('#') + 1  # 해당 행의 마지막 '#' 문자 위치 (드래그 끝)
         if x1 != -1:
             x_list.append(x1)
             x_list.append(x2)
             y_list.append(y)
     if not x_list or not y_list:
-        return []  # No '#' character found, return an empty list
+        return []  # '#' 문자가 없는 경우 빈 리스트를 반환
 
     x_min = min(x_list)
     x_max = max(x_list)
     y_min = min(y_list)
-    y_max = max(y_list) + 1  # Adding 1 to include the last row in the rectangle
-    answer =  [y_min, x_min, y_max, x_max]
+    y_max = max(y_list) + 1  # y좌표 드래그 끝
+    answer = [y_min, x_min, y_max, x_max]
     return answer
 
 wallpaper1 = [".#...", "..#..", "...#."] #[0, 1, 3, 4]
