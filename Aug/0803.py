@@ -1,4 +1,5 @@
-# https://school.programmers.co.kr/learn/courses/30/lessons/140108
+# 문자열 나누기 - https://school.programmers.co.kr/learn/courses/30/lessons/140108
+
 
 '''
 cnt1 첫문자 개수, cnt2는 그 후 문자 개수
@@ -34,7 +35,7 @@ s3 = "aaabbaccccabba"	# 3
 
 
 
-# https://school.programmers.co.kr/learn/courses/30/lessons/138477
+# 명예의 전당 (1) - https://school.programmers.co.kr/learn/courses/30/lessons/138477
 
 '''
 1. 명예의 전당 리스트 생성 top_list
@@ -67,7 +68,7 @@ solution(k2, score2)
 
 
 
-# https://school.programmers.co.kr/learn/courses/30/lessons/236798
+# 기사단원의 무기 - https://school.programmers.co.kr/learn/courses/30/lessons/136798
 
 
 '''
@@ -106,11 +107,11 @@ def solution(number, limit, power):
 시간 복잡도는 O(number^2)
 이는 number가 커질수록 실행 시간이 기하급수적으로 증가하게 됨
 
-1. 불필요한 계산 줄이기:
-현재 코드에서는 모든 i에 대해 1부터 i까지의 약수를 구하고 그 개수를 num_divisor 리스트에 저장한 뒤, limit보다 큰 개수를 power로 변경하고 모든 값을 더하는 방식으로 문제를 해결하고 있습니다. 하지만 이러한 방식은 매우 비효율적입니다.
-
+1. 불필요한 계산 줄이기
 2. 미리 계산한 결과 재활용하기:
-약수의 개수를 빠르게 계산하는 방법을 사용하면 시간을 줄일 수 있습니다. 예를 들면, 10의 약수는 1, 2, 5, 10으로 총 4개입니다. 여기서 주목할 점은 10의 약수는 2와 5의 곱으로 이루어져 있습니다. 이러한 특성을 활용하여 약수의 개수를 빠르게 계산할 수 있습니다.
+약수의 개수를 빠르게 계산하는 방법을 사용한다. 
+예를 들면, 10의 약수는 1, 2, 5, 10으로 총 4개인데, 10의 약수는 2와 5의 곱으로 이루어져 있다. 이러한 특성을 활용하여 약수의 개수를 빠르게 계산할 수 있음.
+-  O(number) 시간 복잡도
 '''
 
 # 코드개선, 2차시도
