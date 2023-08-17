@@ -19,6 +19,7 @@
 * 문자열 뒤집는 구문 : "".join(reversed(문자열))
 '''
 
+'''
 def solution(food):
     answer = ''
     half_answer_1 = ''
@@ -29,7 +30,13 @@ def solution(food):
     half_answer_2 = "".join(reversed(half_answer_1[:-1])) # 0을 제외하고 뒤집기
     answer = half_answer_1 + half_answer_2
     return answer
+    '''
 
+def solution(food):
+    half_answer_1 = ''.join(str(i) * (food[i] // 2) for i in range(1, len(food)))
+    half_answer_2 = "".join(reversed(half_answer_1))
+    answer = half_answer_1 + '0' + half_answer_2
+    return answer
 
 food1 = [1, 3, 4, 6]
 food2 = [1, 7, 1, 2]
