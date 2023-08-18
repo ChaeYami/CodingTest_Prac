@@ -13,6 +13,29 @@
 '''
 
 '''
-라운드 로빙 스케쥴링 방식을 코드로 구현하라는 느낌
+라운드 로빈 스케쥴링 방식을 코드로 구현하라는 느낌
 
 '''
+
+def solution(plans):
+    answer = []
+    plans = sorted(map(lambda x: [x[0], int(x[1][:2]) * 60 + int(x[1][3:]),int(x[2])],plans), key=lambda x:-x[1])
+    lst = []
+    while plans :
+        x = plans.pop()
+        for i,v in enumerate(lst):
+            if v[0]>x[1]:
+                lst[i][0] +=x[2]
+        lst.append([x[1] + x[2], x[0]])
+    lst.sort()
+    answer =  list(map(lambda x: x[1], lst))
+    return answer
+
+
+plans1 = [["korean", "11:40", "30"], ["english", "12:10", "20"], ["math", "12:30", "40"]]
+plans2 = [["science", "12:40", "50"], ["music", "12:20", "40"], ["history", "14:00", "30"], ["computer", "12:30", "100"]]
+plans3 = [["aaa", "12:00", "20"], ["bbb", "12:10", "30"], ["ccc", "12:40", "10"]]
+
+print(solution(plans1)) # ["korean", "english", "math"]
+print(solution(plans2)) # ["science", "history", "computer", "music"]
+print(solution(plans3)) # ["bbb", "ccc", "aaa"]
