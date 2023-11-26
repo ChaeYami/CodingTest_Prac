@@ -56,21 +56,7 @@ def solution(fees, records):
     return answer   
        
         
-    #     창호 튜터님 탄신일
-    #    주차시간 = {}
-    # for record in records:
-    #     차량,시각, 방향 = record.split(" ")
-    #     if 차량 not in 주차시간:
-    #         주차시간[차량] = []
-    #     주차시간[차량].append({"시각": 시각, "방향": 방향})
-    #     hour,minute = 시간.split(':')
-    #     minutes = int(hour)*60 + int(minute)
-    # 누적 주차 시간 = 0
-        # if status == 'OUT':
-        # if 'IN':
-            # 누적 주차 시간 = out 시간 - in 시간
-        # else:
-        #     누적 주차 시간 = minutes + 1
+
 
 
 # 입출력 예
