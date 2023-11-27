@@ -20,30 +20,12 @@ def solution(dice):
         A_score = calculate_score(A_dice)
         B_score = calculate_score(B_dice)
 
-        # print(dice_numbers, '인 경우', 'A :', A_score, 'B:',B_score)
 
         win =  sum(1 for x, y in zip(A_score, B_score) if x > y)
 
-        # win = 0
-        # for a, b in zip(A_score, B_score):
-        #     if a > b:
-        #         win += 1
-        # print('승',win)
 
         probability = win / len(A_score)
 
-        # win = 0
-        # total = 0
-
-        # for case in product([0,1], repeat =len(A_score)):
-        #     total += 1
-        #     for i in range(len(A_score)):
-        #         if case[i] == 1 and A_score[i] <= B_score[i]:
-        #             break
-
-        #         else:
-        #             win +=1
-        # probability = win / total
 
         pro_dic[dice_numbers] = probability
 
