@@ -115,3 +115,65 @@ class Queue:
 
     def is_empty(self):
         return self.front is None
+    
+    
+'''Hash Table'''
+
+# 키로 숫자를 넣으면 10으로 나눈 나머지를 값으로 반환한 해시테이블 만들기
+    
+class HashNode:
+    def __init__(self, key=None, value=None):
+        self.key = key
+        self.value = value
+        self.next = None
+
+
+class HashTable:
+    def __init__(self):
+        self.size = 10 # 해시테이블의 사이즈 (10으로 나눈 나머지이기떄문에 10으로 설정)
+        self.table = [None] * self.size
+
+    def _hash_function(self, key):
+        return key % self.size
+
+    def put(self, key, value):
+        
+        index = self._hash_function(key) # 키를 넣었을 때 결과값
+        
+        if self.table[index] is None: # 값이 없을 때 (푸시한적이 없는 해싱값일 때)
+            self.table[index] = HashNode(key, value)#next=None
+            
+        else: # 이미 값이 있을 때 (푸시한적이 있는 해싱값일 때) - 체이닝방식이므로 같은 값은 맨 끝에 계속 붙여주면 됨
+            node = self.table[index] 
+            while node.next is not None: # 다음 노드가 없을 때 까지(맨끝까지)
+                node = node.next
+            node.next = HashNode(key, value)
+
+    def get(self, key):
+        
+        index = self._hash_function(key)
+        node = self.table[index]
+        
+        while node is not None: #노드에 배정된 키가 있을 동안
+            if node.key == key: #내가 원하는 값(내가 넣은 키라면)
+                return node.value #값 반환
+            node = node.next #원하는 노드가 아니면 옮기자
+        return -1 # 배정된 게 없다면 -1 반환하자
+
+    def remove(self, key):
+        
+        index = self._hash_function(key)
+        node = self.table[index]
+        prev_node = None
+        
+        while node is not None:
+            if node.key == key:
+                
+                if prev_node is None: # 이전 노드가 없다 - 첫번째꺼다 - 지금거를 다음걸로 바꾼다
+                    self.table[index] = node.next
+                else:
+                    prev_node.next = node.next # 이전 노드의 next를 지금거의 다음걸로 넘긴다 (가운데를 빼는 느낌)
+                return
+            
+            prev_node = node # 이전 노드를 지금 노드로 넘긴다
+            node = node.next
