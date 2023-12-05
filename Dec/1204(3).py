@@ -16,3 +16,18 @@ def solution(participant, completion):
     if len(answer) == 0:
         answer = participant[-1]
     return answer
+
+
+def solution(participant, completion):
+    set_people = set(participant)-set(completion)
+    if not set_people:
+        participant.sort()
+        completion.sort()
+        idx=0
+        while True:
+            if participant[idx] != completion[idx]:
+                answer = participant[idx]
+            break
+        idx+=1
+    else: answer = list(set_people)[0]
+    return answer
