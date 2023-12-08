@@ -1,0 +1,49 @@
+
+# https://school.programmers.co.kr/learn/courses/30/lessons/87946
+
+# 1 번 풀이
+
+from itertools import permutations
+
+def solution(k, dungeons):
+    answer = -1
+    
+    for i in permutations(dungeons, len(dungeons)):
+        count = 0
+        k_ = k
+        for min_need, consu in i:
+            
+            if k_ >= min_need:
+                k_ -= consu
+                count += 1
+                
+        if answer < count:
+            answer = count
+            
+    return answer
+
+
+# 2번 풀이
+
+answer = 0
+def DFS(k, complete, dungeons, check):
+    global answer
+    answer = max(answer, complete) # 탐험 수가 크면 업데이트
+    for i in range(len(dungeons)):
+	    # 방문하지 않은 던전이고, 현재 피로도가 해당 던전을 방문하기 위한 최소 피로도보다 크면
+        if check[i] == 0 and k >= dungeons[i][0]:
+	        # 방문처리
+            check[i] = 1
+            
+            DFS(k-dungeons[i][1], complete+1, dungeons, check)
+            check[i] = 0
+
+def solution(k, dungeons):
+    # answer = 0
+    global answer
+    check = [0]*len(dungeons) # 방문 여부
+    
+    # complete: 탐험한 던전 개수, k: 남은 피로도
+    DFS(k, 0, dungeons, check) # 0: 방문한 던전의 개수를 0으로 DFS 함수에 넘겨준다.
+    
+    return answer
