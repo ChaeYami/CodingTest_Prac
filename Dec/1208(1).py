@@ -10,11 +10,11 @@ def solution(k, dungeons):
     
     for i in permutations(dungeons, len(dungeons)):
         count = 0
-        k_ = k
-        for min_need, consu in i:
+        left_k = k 
+        for min_need, need_k in i:
             
-            if k_ >= min_need:
-                k_ -= consu
+            if left_k >= min_need:
+                left_k -= need_k
                 count += 1
                 
         if answer < count:
