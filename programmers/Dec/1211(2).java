@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/42883?language=java
+
 class Solution {
     public String solution(String number, int k) {
         StringBuilder answer = new StringBuilder();

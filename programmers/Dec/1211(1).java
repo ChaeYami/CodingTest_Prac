@@ -1,3 +1,5 @@
+// https://school.programmers.co.kr/learn/courses/30/lessons/42862?language=java
+
 import java.util.Arrays;
 class Solution {
     public int solution(int n, int[] lost, int[] reserve) {
