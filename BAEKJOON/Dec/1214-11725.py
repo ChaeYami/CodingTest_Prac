@@ -34,8 +34,8 @@ for i in range(N-1):
     graph[b].add(a)
     
 '''
+# 그래프 생성
 graph = [[] for i in range(N+1)]
-
 for i in range(N-1):
     a, b = map(int, sys.stdin.readline().split())
     graph[a].append(b)
@@ -105,3 +105,5 @@ bfs(1)
 answer = visited[2:]
 for x in answer:
     print(x)
+
+
