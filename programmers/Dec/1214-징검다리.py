@@ -1,3 +1,5 @@
+# https://school.programmers.co.kr/learn/courses/30/lessons/43236
+
 def solution(distance, rocks, n):
     # 시작과 끝의 최소 최대는 1, distance
     start = 1
