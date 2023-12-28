@@ -37,7 +37,7 @@ def count_problem_source_code():
 
 
 def make_count_site_info(total_code_num, code_cnt_info):
-    count_info = f"### 해결한 문제 : {total_code_num}개\n"
+    count_info = f"## 해결한 문제 : {total_code_num}개\n---\n"
 
     for name in code_cnt_info:
         temp = f"#### {name[0]} - {name[1]}개\n"
@@ -48,14 +48,15 @@ def make_count_site_info(total_code_num, code_cnt_info):
 def make_count_month_info(month_files_info):
     month_info = f"### 날짜별 해결한 문제 \n"
     for directory_month_files_info in month_files_info:
-        temp = f"#### {directory_month_files_info[0]} : {directory_month_files_info[1]}\n"
+        temp = f"#### {directory_month_files_info[0]} : {directory_month_files_info[1]}개\n"
         month_info += temp
     return month_info
 
 
 def make_read_me(count_info, month_info):
-    return f"""# 코딩테스트 연습 문제풀이 저장소 ( CODINGTEST PRACTICE )
+    return f"""# ⭐ 코딩테스트 연습 ( CODINGTEST PRACTICE ) ⭐
 {count_info}
+---
 {month_info}
 """
 
