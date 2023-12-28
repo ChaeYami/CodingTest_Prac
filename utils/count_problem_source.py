@@ -74,7 +74,6 @@ def make_read_me(count_info, month_info):
 
 def update_readme_md():
     total_code_num, code_cnt_info, month_files_info = count_problem_source_code()
-
     count_info = make_count_site_info(total_code_num=total_code_num, code_cnt_info=code_cnt_info)
 
     month_info = make_count_month_info(month_files_info=month_files_info)
