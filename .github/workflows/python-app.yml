@@ -21,6 +21,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: 3.9
+        github_token : ${{ secrets.TOKEN }}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
@@ -28,10 +29,16 @@ jobs:
       run: |
         python utils/count_problem_source.py
     - name: Run Update README.md File
+    
+      env:
+        TOKEN : ${{ secrets.TOKEN }}
+        
       run: |
         git add .
         git diff
         git config --local user.email "ssallyseo@gmail.com"
         git config --local user.name "ChaeYami"
         git commit -m ":purple_heart: Update README.md file"
-        git push
+        git push origin main
+
+      
