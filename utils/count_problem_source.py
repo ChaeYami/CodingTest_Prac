@@ -4,7 +4,7 @@ import os
 import re
 
 def count_problem_source_code():
-    month_files_info = []
+    month_files = []
     
     problem_solve_code_list = []
 
@@ -20,7 +20,7 @@ def count_problem_source_code():
         # 날짜별 (폴더명 = 달)
         file_count = len(code_list)
         temp = [directory, file_count]
-        month_files_info.append(temp)
+        month_files.append(temp)
         
         
     name_list = [re.findall(r'\[[^)]*\]', code_name) for code_name in problem_solve_code_list]
@@ -30,6 +30,8 @@ def count_problem_source_code():
     total_code_num = len(name_list)
     
     code_cnt_info = sorted(Counter(name_list).items(), key=lambda x: -x[1])
+    
+    month_files_info = sorted(month_files)
 
     return total_code_num, code_cnt_info, month_files_info
 
