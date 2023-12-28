@@ -28,6 +28,10 @@ jobs:
       run: |
         python utils/count_problem_source.py
     - name: Run Update README.md File
+    
+      env:
+        TOKEN : ${{ secrets.TOKEN }}
+        
       run: |
         git add .
         git diff
@@ -36,5 +40,4 @@ jobs:
         git commit -m ":purple_heart: Update README.md file"
         git push origin main
 
-      env:
-        TOKEN : ${{ secrets.TOKEN }}
+      
