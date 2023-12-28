@@ -33,7 +33,7 @@ def solution(my_string):
         if i not in answer:
             answer += i
     return answer
-10:07
+
 #인덱스바꾸기
 def solution(my_string, num1, num2):
     answer = ''
