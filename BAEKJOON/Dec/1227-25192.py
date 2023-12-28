@@ -8,6 +8,7 @@ cnt_gomgom = 0
 
 for _ in range(N):
     chat = input().rstrip()
+    
     if chat == 'ENTER': # 새로운 사람이 들어오면
         new_chat.clear() # 채팅 정보 초기화
             

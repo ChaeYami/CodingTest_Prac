@@ -3,7 +3,7 @@
 class Solution {
     public String solution(String number, int k) {
         StringBuilder answer = new StringBuilder();
-        char[] numArray = number.toCharArray();
+        // char[] numArray = number.toCharArray();
         int lenAnswer = number.length() - k; // 결과
         int startIndex = 0;
 
