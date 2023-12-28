@@ -34,4 +34,7 @@ jobs:
         git config --local user.email "ssallyseo@gmail.com"
         git config --local user.name "ChaeYami"
         git commit -m ":purple_heart: Update README.md file"
-        git push
+        git push origin main
+
+      env:
+        ACCESS_TOKEN : ${{ secrets.TOKEN }}
