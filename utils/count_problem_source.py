@@ -6,7 +6,7 @@ def count_by_category_and_month(log_file_path):
     month_counter = Counter()
     total_files_count = 0
 
-    with open(log_file_path, 'r') as log_file:
+    with open(log_file_path, 'r', encoding='cp949') as log_file:
         next(log_file)  # 헤더를 건너뛰기
         for line in log_file:
             # 'created_at' 문자열을 기준으로 나누고 오른쪽 부분을 선택하여 사용
