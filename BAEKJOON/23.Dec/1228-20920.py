@@ -1,10 +1,10 @@
 # https://www.acmicpc.net/submit/20920
 
-from collections import deque, Counter
+from collections import Counter
 import sys
 
 input = sys.stdin.readline
-lst = list(map(int, input().split(' ')))
+lst = list(map(int, input().split()))
 word_cnt = lst[0]
 voca_length = lst[1]
 
