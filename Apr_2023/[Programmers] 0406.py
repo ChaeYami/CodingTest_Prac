@@ -68,8 +68,6 @@ def solution(rsp): # 205
         rsp_str += rsp_dict[i] 
         
     return rsp_str
-        
-    
 
 
 print(solution('205'))
