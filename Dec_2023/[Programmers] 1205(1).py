@@ -10,6 +10,5 @@ def solution(arr):
         else:
             if tem != arr[i-1]:
                 answer.append(tem)
-            
         
     return answer
