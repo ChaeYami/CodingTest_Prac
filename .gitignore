@@ -3,3 +3,6 @@
 .idea/
 .out/
 out/
+
+log.py
+test.py
