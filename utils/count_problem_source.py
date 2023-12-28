@@ -85,6 +85,7 @@ def update_readme_md():
 
 if __name__ == "__main__":
     readme = update_readme_md()
+    test = "test"
     with open("./README.md", 'w', encoding='utf-8') as f:
-        f.write(readme)
+        f.write(test)
 
