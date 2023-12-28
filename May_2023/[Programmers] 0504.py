@@ -36,7 +36,6 @@ def solution1(s, skip, index):
         answer += new_j
     return answer
 
-
 def solution2(s, skip, index):
     answer = ''
     # 모든 알파벳
