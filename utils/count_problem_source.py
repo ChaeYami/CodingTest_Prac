@@ -3,7 +3,6 @@ from datetime import datetime
 import os
 import re
 
-
 def count_problem_source_code():
     month_files_info = []
     
