@@ -3,6 +3,6 @@
 .idea/
 .out/
 out/
-
+venv
 log.py
 test.py

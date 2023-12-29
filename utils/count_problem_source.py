@@ -1,5 +1,6 @@
 from collections import Counter
 from datetime import datetime
+import re
 
 def count_by_category_and_month(log_file_path):
     category_list = []
@@ -9,32 +10,42 @@ def count_by_category_and_month(log_file_path):
     with open(log_file_path, 'r', encoding='cp949') as log_file:
         next(log_file)  # 헤더를 건너뛰기
         for line in log_file:
-            # 'created_at' 문자열을 기준으로 나누고 오른쪽 부분을 선택하여 사용
-            created_at_str = line.split('created_at : ')[1].strip()
+            
+            file_name, status, created_at_str = re.split(', | : ', line.strip())
+
             created_at = datetime.strptime(created_at_str, "%Y-%m-%d %H:%M:%S.%f")
 
-            # [] 안의 글자로 묶어서 갯수 세기
+            # [] 안의 글자로 묶어서
             category = line[line.find('[')+1:line.find(']')]
             category_list.append(category)
-            category_counter = sorted(Counter(category_list).items(), key=lambda x: -x[1])
-
-            # 년-월로 묶어서 갯수 세기
+            
             month = created_at.strftime("%Y-%m")
-            month_counter[month] += 1
-
-            total_files_count += 1
+            
+            if status == 'created_at':
+                month_counter[month] += 1
+                total_files_count += 1
+                category_counter = Counter(category_list)
+            
+            elif status == 'deleted_at':
+                month_counter[month] -= 1
+                total_files_count -= 1
+                category_counter[category] -= 1
+                
+            # 카테고리 개수세기
+            category_files = sorted(category_counter.items(), key=lambda x: -x[1])
             
             month_files = sorted(month_counter.items(), key=lambda x: (int(x[0][:4]), int(x[0][5:])))
 
-    return category_counter, month_files, total_files_count
+    return category_files, month_files, total_files_count
 
 
-def make_count_site_info(total_files_count, category_counter):
+def make_count_site_info(total_files_count, category_files):
     count_info = f"## 해결한 문제 : {total_files_count}개\n"
 
-    for name in category_counter:
-        temp = f"#### {name[0]} - {name[1]}개\n"
-        count_info += temp
+    for name in category_files:
+        if name[1] > 0:
+            temp = f"#### {name[0]} - {name[1]}개\n"
+            count_info += temp
 
     return count_info
 
@@ -44,9 +55,9 @@ def make_count_month_info(month_files):
     
     for month_year, count in month_files:
         formatted_month_year = datetime.strptime(month_year, "%Y-%m").strftime("%b-%Y")
-        
-        temp = f"#### {formatted_month_year} : {count}개\n"
-        month_info += temp
+        if count > 0:
+            temp = f"#### {formatted_month_year} : {count}개\n"
+            month_info += temp
         
     return month_info
 
@@ -59,8 +70,8 @@ def make_read_me(count_info, month_info):
 def update_readme_md():
     log_file_path = "./file_log.txt"  # 로그 파일 경로
     
-    category_counter, month_files, total_files_count = count_by_category_and_month(log_file_path)
-    count_info = make_count_site_info(total_files_count=total_files_count, category_counter=category_counter)
+    category_files, month_files, total_files_count = count_by_category_and_month(log_file_path)
+    count_info = make_count_site_info(total_files_count=total_files_count, category_files=category_files)
 
     month_info = make_count_month_info(month_files=month_files)
     
