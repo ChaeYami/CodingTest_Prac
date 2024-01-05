@@ -40,29 +40,29 @@ def count_by_category_and_month(log_file_path):
 
 
 def make_count_site_info(total_files_count, category_files):
-    count_info = f"## 해결한 문제 : {total_files_count}개\n"
+    count_info = f"### 📑 전체 해결한 문제 : {total_files_count}개\n"
 
     for name in category_files:
         if name[1] > 0:
-            temp = f"#### {name[0]} - {name[1]}개\n"
+            temp = f"#### ▶️ {name[0]} - {name[1]}개\n"
             count_info += temp
 
     return count_info
 
 
 def make_count_month_info(month_files):
-    month_info = f"### 날짜별 해결한 문제 \n"
+    month_info = f"### 📑 날짜별 해결한 문제 \n"
     
     for month_year, count in month_files:
         formatted_month_year = datetime.strptime(month_year, "%Y-%m").strftime("%b-%Y")
         if count > 0:
-            temp = f"#### {formatted_month_year} : {count}개\n"
+            temp = f"#### 💜 {formatted_month_year} : {count}개\n"
             month_info += temp
         
     return month_info
 
 def make_read_me(count_info, month_info):
-    return f"""# ⭐ 코딩테스트 연습 ( CODINGTEST PRACTICE ) ⭐
+    return f"""# ⭐ 코딩테스트 연습 문제풀이
 <div align="center"><img src="https://github.com/ChaeYami/ChaeYami/assets/120750451/7c8742a2-96f5-4f80-948f-fc5fc8afdcd2" width="128"/></div>
 
 {count_info}
