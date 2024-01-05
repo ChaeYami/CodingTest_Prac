@@ -1,5 +1,6 @@
 # ⭐ 코딩테스트 연습 ( CODINGTEST PRACTICE ) ⭐
 <div align="center"><img src="https://github.com/ChaeYami/ChaeYami/assets/120750451/7c8742a2-96f5-4f80-948f-fc5fc8afdcd2" width="128"/></div>
+
 ## 해결한 문제 : 106개
 #### Programmers - 71개
 #### BAEKJOON - 35개
