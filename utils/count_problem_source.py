@@ -66,6 +66,7 @@ def make_read_me(count_info, month_info):
 <div align="center"><img src="https://github.com/ChaeYami/ChaeYami/assets/120750451/7c8742a2-96f5-4f80-948f-fc5fc8afdcd2" width="128"/></div>
 
 {count_info}
+
 {month_info}
 """
 
