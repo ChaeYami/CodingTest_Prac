@@ -64,6 +64,7 @@ def make_count_month_info(month_files):
 def make_read_me(count_info, month_info):
     return f"""# ⭐ 코딩테스트 연습 ( CODINGTEST PRACTICE ) ⭐
 <div align="center"><img src="https://github.com/ChaeYami/ChaeYami/assets/120750451/7c8742a2-96f5-4f80-948f-fc5fc8afdcd2" width="128"/></div>
+
 {count_info}
 {month_info}
 """
