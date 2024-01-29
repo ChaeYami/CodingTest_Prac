@@ -106,3 +106,4 @@ file_name, status, timestamp
 [Programmers] 1125test.py, created_at : 2023-11-25 15:26:48.757114
 [Programmers] 1129.py, created_at : 2023-11-29 14:22:29.573911
 [BAEKJOON] 0124-9663.py, created_at : 2024-01-24 18:10:06.896511
+[BAEKJOON] 0129-2580.py, created_at : 2024-01-29 14:05:17.369580

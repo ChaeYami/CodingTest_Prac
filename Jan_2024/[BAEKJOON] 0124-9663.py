@@ -5,7 +5,6 @@ input = sys.stdin.readline
 n = int(input())
 	
 visited = [-1] * n
-answers = []
 cnt = 0
 
 def check(now_row):
@@ -15,15 +14,16 @@ def check(now_row):
     return True
 
 def dfs(row):
-    if row >= n: 
-        global cnt
+    global cnt
+    
+    if row == n: 
         cnt += 1
-        return cnt
 
-    for col in range(n):
-        visited[row] = col
-        if check(row): 
-            dfs(row + 1) 
-            
+    else:
+        for col in range(n):
+            visited[row] = col
+            if check(row): 
+                dfs(row + 1) 
+                
 dfs(0)
 print(cnt)
