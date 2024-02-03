@@ -108,3 +108,4 @@ file_name, status, timestamp
 [BAEKJOON] 0124-9663.py, created_at : 2024-01-24 18:10:06.896511
 [BAEKJOON] 0129-2580.py, created_at : 2024-01-29 14:05:17.369580
 [BAEKJOON] 0130-14889 copy.py, created_at : 2024-01-30 22:49:33.913100
+[BAEKJOON] 0203-2108.py, created_at : 2024-02-03 20:48:11.696995

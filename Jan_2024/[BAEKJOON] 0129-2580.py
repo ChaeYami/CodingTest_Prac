@@ -1,4 +1,4 @@
-'''
+
 import sys
 
 SIZE = 9
@@ -35,7 +35,7 @@ def dfs(n):
             sudoku[y][x] = 0
             
 dfs(0)
-'''
+
 
 import sys
 

@@ -1,4 +1,4 @@
-'''
+
 import sys
 
 input = sys.stdin.readline
@@ -35,7 +35,6 @@ dfs (0,0)
 print(result)                    
 
 
-'''
 
 import sys
 from itertools import combinations
