@@ -2,11 +2,11 @@ import sys
 
 input = sys.stdin.readline
 
-n = int(input()) # 숫자 갯수
+n = int(input())  # 숫자 갯수
 given_nums = [int(input()) for _ in range(n)] # 주어진 수
 
 '''산술평균 구하기'''
-total_sum = sum(given_nums) # 주어진 수들의 총합
+total_sum = sum(given_nums)  # 주어진 수들의 총합
 a_mean = round(total_sum/n)
 
 '''중앙값 구하기'''
@@ -14,7 +14,7 @@ given_nums.sort()
 median = given_nums[n//2]
 
 '''최빈값 구하기'''
-num_count = dict() # 각 숫자의 갯수 - 숫자가 키, 갯수가 값
+num_count = dict()  # 각 숫자의 갯수 - 숫자가 키, 갯수가 값
 for num in given_nums:
         num_count[num] = num_count.get(num, 0) + 1
         
