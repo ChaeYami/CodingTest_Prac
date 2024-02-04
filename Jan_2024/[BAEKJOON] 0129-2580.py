@@ -42,7 +42,8 @@ import sys
 SIZE = 9
 
 sudoku = [list(map(int,sys.stdin.readline().split())) for _ in range(SIZE)]
-    # 스도쿠 퍼즐의 모든 셀의 합 초기화
+
+# 스도쿠 퍼즐의 모든 셀의 합 초기화
 total_sum = sum(map(sum, sudoku))
 
 def check(y, x, check_num):
