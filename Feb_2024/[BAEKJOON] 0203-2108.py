@@ -5,9 +5,8 @@ input = sys.stdin.readline
 n = int(input()) # 숫자 갯수
 given_nums = [int(input()) for _ in range(n)] # 주어진 수
 
-total_sum = sum(given_nums) # 주어진 수들의 총합
-
 '''산술평균 구하기'''
+total_sum = sum(given_nums) # 주어진 수들의 총합
 a_mean = round(total_sum/n)
 
 '''중앙값 구하기'''
