@@ -31,7 +31,6 @@ mode = mode_numbers[0] if len(mode_numbers) == 1 else sorted(mode_numbers)[1]
 num_range = given_nums[-1] - given_nums[0]
 
 '''출력'''
-
 print(a_mean)
 print(median)
 print(mode)
