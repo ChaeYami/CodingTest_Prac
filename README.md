@@ -1,9 +1,9 @@
 # ⭐ 코딩테스트 연습 문제풀이
 <div align="center"><img src="https://github.com/ChaeYami/ChaeYami/assets/120750451/7c8742a2-96f5-4f80-948f-fc5fc8afdcd2" width="128"/></div>
 
-## 📑 전체 해결한 문제 : 109개
+## 📑 전체 해결한 문제 : 110개
 #### ▶️ Programmers - 71개
-#### ▶️ BAEKJOON - 38개
+#### ▶️ BAEKJOON - 39개
 
 
 <br>
@@ -16,4 +16,5 @@
 #### 💜 Nov-2023 : 11개
 #### 💜 Dec-2023 : 50개
 #### 💜 Jan-2024 : 3개
+#### 💜 Feb-2024 : 1개
 
